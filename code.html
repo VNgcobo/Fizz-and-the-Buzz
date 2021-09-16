@@ -160,15 +160,27 @@
                         We also need to check whether the user's input is valid. This is be achieved using an if/else statement, namely: 
                         if user input is an integer, then the app will continue to run, else, then an alert will pop up on the screen </p>
                     <h5>fizzBuzz</h5>
-                    <p>Logic Function. Here, we need to establish an empty array. Then we need to create a loop (from 1 to 100). The numbers must be checked as well, and we achieve this by an if/then/else statements inside the For Loop. 
-                        For instance, if a number % 5 == 0 && number % 3 == 0; then the a function will return a value 'FizzBuzz'. 
-                        Otherwise (Else if), if the number % 5 == 0 only, then the function will return a value of 'buzz'. 
-                        Again Otherwise, if the number % 3 == 0 only, then the function will return a value of 'fizz'. 
-                        Finally, if all the previous condtions are not met then, (else) the function will return the value as it is.
-                        At the end, we want the function to return the values of the array.
+                    <p>Logic Function. The values generated here need to be stored in an array (returnArray). 
+                        Then for each of the values, we need to establish if they are divisible by (both 3 and 5);  by 3 only; or 5 only. 
+                        This is achieved using a for loop for each index (1 to 100), and validating it's value within the loop using if/else statements. 
+                        If the value is satisfies the first condition, then we can replace it's value with "FizzBuzz".
+                        Otherwise, if the second condition is met, then the value is replaced with "Fizz". 
+                        Otherwise, if the third condition is met, then the value will be replaced by "Buzz". 
+                        If none of the conditions are met, the number is pushed back into the array.
+                        Finally, we use the return statement to return the values of the function.
                     </p>
                     <h5>displayData</h5>
-                    <p>Display Function. Here, we need to display the results to the user.  </p>
+                    <p>
+                        Display Function. Here, we need to display the results to the user.
+                        First, we format the table layout under a template tag with an id of "fbTemplate", so that this can be imported into the javscript. 
+                        Then, we get the table body element from the html using DOM Manipulation so that its inner HTML is set to the format of the contents of the template tag.
+                        To achieve this, we use DOM manipulation to get the template from the HTML.
+                    </p>
+                    <p>
+                        Since the function will be run 100 times, we need to first clear the table by setting the table body's inner HTML to a blank string.
+                        Then we have to loop over the array. We declare a new variable (tableRow), and (copies in memory then move to the table body - importNode).
+                        Each time data is appended in the tableRow, we add it to the page
+                    </p>
                 </div>
             </div>
         </div>

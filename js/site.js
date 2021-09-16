@@ -1,68 +1,49 @@
-//get values from the user. We need to get the fizz amd the buzz value.
+//get values from page
+//controller function
 function getValues(){
-    //get the user values from the page
     let fizzValue = document.getElementById("fizzValue").value;
     let buzzValue = document.getElementById("buzzValue").value;
 
-    //parse for numbers
+    //parse numbers into integers
     fizzValue = parseInt(fizzValue);
     buzzValue = parseInt(buzzValue);
 
-    //check if the numbers are integers
+    //validate user input
     if(Number.isInteger(fizzValue) && Number.isInteger(buzzValue)){
-        //fizzBuzz is called
+        //call fizzBuzz
         let fbArray = fizzBuzz(fizzValue,buzzValue);
-        
-        //displayData is called and the values are written to the screen
-        displayData(fbArray);
 
+        //call displayNumbers
+        displayData(fbArray);
     } else{
-        alert("You must enter numbers!");
+        alert("Please enter an integer");
     }
-   
 }
 
-function fizzBuzz(fizzValue, buzzValue){
-    //initialise the returnArray
+//generate the numbers
+//logic function
+function fizzBuzz(fizzValue,buzzValue){
     let returnArray = [];
 
-    //loop from 1 to 100
-    //inside this loop, we need to check the current in three steps:
     for(let i = 1; i <= 100; i++){
-          
-        //check to see if divisible by both (3 and 5) if so push "FizzBuzz" into an array and not the number
-
-        if(i % fizzValue == 0 && i % buzzValue == 0) {
+        if(i % fizzValue == 0 && i % buzzValue == 0){
             returnArray.push('FizzBuzz');
-        }
-        //check to see if divisible by fizz value (3) 
-
-        else if(i % fizzValue == 0){
-
-            //if so push "fizz" into an array and not the number
+        } else if(i % fizzValue == 0){
             returnArray.push('Fizz');
-        }
-        //check to see if divisible by buzz value (5)
-
-        else if(i % buzzValue == 0){    
-
-            //if so push "buzz" into an array and not the number
+        } else if(i % buzzValue == 0){
             returnArray.push('Buzz');
-        }
-        //else, then push the number into the array
-
-        else{
-            returnArray.push(i);
+        } else {
+            returnArray.push(i)
         }
     }
-
     return returnArray;
 }
 
-function displayData(fbArray) {
-    //loop over the array and create a tablerow for each item.
-
-    //get the tbody element from the page
+//display numbers to the screen
+//view function
+function displayData(fbArray){
+    
+    //get the tbody element from the html page
     let tableBody = document.getElementById("results");
 
     //get the template row
@@ -71,11 +52,12 @@ function displayData(fbArray) {
     //clear table first
     tableBody.innerHTML = "";
 
-    for (let index = 0; index < fbArray.length; index += 5) {
-        
+    //loop over the array and create a tablerow for each item.
+    for(let index = 0; index < fbArray.length; index += 5){
+
         let tableRow = document.importNode(templateRow.content, true);
-        
-        //grab the td's and put them in an array
+
+        //grab the td's and put them in an array 
         let rowCols = tableRow.querySelectorAll("td");
         rowCols[0].classList.add(fbArray[index]);
         rowCols[0].textContent = fbArray[index];
@@ -91,8 +73,7 @@ function displayData(fbArray) {
 
         rowCols[4].classList.add(fbArray[index+4]);
         rowCols[4].textContent = fbArray[index+4];
-        
+
         tableBody.appendChild(tableRow);
     }
-
 }

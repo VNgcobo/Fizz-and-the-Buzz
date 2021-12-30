@@ -33,7 +33,7 @@ function fizzBuzz(fizzValue,buzzValue){
         } else if(i % buzzValue == 0){
             returnArray.push('Buzz');
         } else {
-            returnArray.push(i)
+            returnArray.push(i);
         }
     }
     return returnArray;
